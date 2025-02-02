@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Jan 20 16:42:31 2025
-
-@author: Dell
-"""
 import os
 import pickle
 import streamlit as st
@@ -228,7 +222,6 @@ if selected == "Parkinsons Prediction":
 
     # code for Prediction
     parkinsons_diagnosis = ''
-
     # creating a button for Prediction    
     if st.button("Parkinson's Test Result"):
 
@@ -244,6 +237,4 @@ if selected == "Parkinsons Prediction":
             parkinsons_diagnosis = "The person has Parkinson's disease"
         else:
             parkinsons_diagnosis = "The person does not have Parkinson's disease"
-
     st.success(parkinsons_diagnosis)
-
