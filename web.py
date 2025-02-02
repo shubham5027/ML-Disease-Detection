@@ -1,20 +1,14 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Jan 20 16:42:31 2025
-
-@author: Dell
-"""
 import os
 import pickle
 import streamlit as st
 from streamlit_option_menu import option_menu
 import numpy as np
 
-st.set_page_config(page_title="prediction of disease Outbreaks",layout='wide',page_icon='doctor')
+st.set_page_config(page_title="Prediction of disease Outbreaks",layout='wide',page_icon='doctor')
 
 diabetes_model = pickle.load(open('diabetes_model.sav','rb'))
 heart_disease_model = pickle.load(open('heart_disease_model.sav','rb'))
-parkinsons_disease_model = pickle.load(open('parkinsons_model.sav','rb'))
+parkinsons_model = pickle.load(open('parkinsons_model.sav','rb'))
 
 with st.sidebar:
     selected = option_menu('Prediction of Disease outbeaks system',['Diabetes Prediction','Heart Disease Prediction','Parkinsons Disease Prediction'],menu_icon='hospital-fill',icons=['activity','heart','person'],default_index=0)
@@ -53,7 +47,6 @@ if selected == 'Diabetes Prediction':
 elif selected == 'Heart Disease Prediction':
     st.title("HEART DISEASE PREDICTION USING ML")
     col1,col2,col3 = st.columns(3);
-
     with col1:
         age = st.text_input("Age of the Person");
     with col2:
@@ -158,6 +151,5 @@ elif selected=='Parkinsons Disease Prediction':
         if(park_prediction[0]==0):
             park_diagnosis = 'Person Doest`nt have ParkinSon`s disease'
         else:
-            park_diagnosis = 'Person have ParkinSon`s disease'
-        
+            park_diagnosis = 'Person have Parkinson`s disease'
         st.success(park_diagnosis);
